@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Student Profile | Joy University</title>
+<link rel="stylesheet" href="STYLE.css">
+</head>
+<body class="page-profile" data-page="profile">
+
+
+<section class="hero avatar-hero">
+  <div class="avatar-wrap">
+    <img class="avatar" id="avatar" alt="Demo student avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23590d25'/%3E%3Ccircle cx='100' cy='72' r='38' fill='%23d8dadd'/%3E%3Cpath d='M28 190c5-48 34-72 72-72s67 24 72 72' fill='%23d8dadd'/%3E%3C/svg%3E">
+    <button class="edit" title="Change profile photo" onclick="document.getElementById('photoInput').click()">✎</button>
+    <input id="photoInput" type="file" accept="image/*" hidden onchange="changePhoto(event)">
+  </div>
+  <h2>DEMO STUDENT</h2>
+  <p>Student Profile · Joy University</p>
+</section>
+
+<main>
+  <h3 class="section-title">Personal Details</h3>
+  <div class="details">
+    <div class="detail-row"><span class="label">First Name</span><span class="value">DEMO STUDENT</span></div>
+    <div class="detail-row"><span class="label">Last Name</span><span class="value">STUDENT</span></div>
+    <div class="detail-row"><span class="label">DOB</span><span class="value">01 Jan 2005</span></div>
+    <div class="detail-row"><span class="label">Mobile Number</span><span class="value">9000000000</span></div>
+    <div class="detail-row"><span class="label">Email ID</span><span class="value">demo.student@example.edu</span></div>
+  </div>
+
+  <h3 class="section-title">Account Details</h3>
+  <div class="details">
+    <div class="detail-row"><span class="label">User ID</span><span class="value">DEMO001</span></div>
+    <div class="detail-row"><span class="label">Roll Number</span><span class="value">DEMO2026001</span></div>
+    <div class="detail-row"><span class="label">Serial Number</span><span class="value">01</span></div>
+    <div class="detail-row"><span class="label">Admission Number</span><span class="value">DEMO-ADM-001</span></div>
+    <div class="detail-row"><span class="label">GRN Number</span><span class="value">DEMO-GRN-001</span></div>
+    <div class="detail-row"><span class="label">PRN Number</span><span class="value">DEMO2026001</span></div>
+    <div class="detail-row"><span class="label">Seat Number</span><span class="value">DEMO-01</span></div>
+  </div>
+
+  <button class="action" onclick="openModal('passwordModal')"><span>Change Password</span><span>›</span></button>
+
+  <h3 class="section-title">App Details</h3>
+  <div class="details">
+    <div class="detail-row"><span class="label">App Version</span><span class="value">21.07</span></div>
+  </div>
+  <button class="action" onclick="alert('Privacy Policy page can be connected here.')"><span>Privacy Policy</span><span>›</span></button>
+
+  <h3 class="section-title">Payment Receipt</h3>
+  <button class="action" onclick="alert('Subscription Receipt Not Found. Please contact your institute office.')"><span>View Receipt</span><span>›</span></button>
+
+  <button class="signout" onclick="if(confirm('Are you sure you want to sign out?')) alert('Connect this button to your login page.')">Sign Out</button>
+  <div class="footer">JOY UNIVERSITY · DEMO PROFILE</div>
+</main>
+
+<div class="modal-backdrop" id="passwordModal" role="dialog" aria-modal="true" aria-labelledby="passwordTitle">
+  <div class="modal">
+    <h3 id="passwordTitle">Change Password</h3>
+    <input type="password" id="oldPassword" placeholder="Old Password">
+    <input type="password" id="newPassword" placeholder="New Password">
+    <input type="password" id="confirmPassword" placeholder="Confirm New Password">
+    <div class="modal-buttons">
+      <button class="cancel" onclick="closeModal('passwordModal')">Cancel</button>
+      <button class="save" onclick="savePassword()">Update</button>
+    </div>
+  </div>
+</div>
+
+
+<script src="SCRIPT.js"></script>
+</body>
+</html>

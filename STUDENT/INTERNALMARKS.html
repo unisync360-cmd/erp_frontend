@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joy University | Internal Marks</title>
+<link rel="stylesheet" href="STYLE.css">
+</head>
+<body class="page-internal-marks" data-page="internal-marks">
+
+<main class="container">
+  <section id="subjectPage">
+    <p class="intro">Choose a subject and select <b>View</b> to open its Excel-style internal marks sheet. This is a demo with sample student names and editable marks. Maximum total: <b>60 marks</b>.</p>
+    <div class="subject-list" id="subjectList"></div>
+  </section>
+  <section id="sheetPage" class="hidden">
+    <div class="panel">
+      <h2 class="heading" id="sheetTitle">Subject Internal Marks</h2>
+      <p class="note">Demo data only · Edit component marks below. Each component is limited to its maximum marks; total is calculated automatically out of 60.</p>
+      <div class="toolbar">
+        <span class="total-pill">Maximum: 60 marks</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-secondary" id="backSubjects">← Subjects</button>
+          <button class="btn btn-primary" id="downloadCsv">Download Excel Sheet (CSV)</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="marksTable">
+          <thead><tr>
+            <th>Student Name</th><th>Student ID</th><th>Assignment<br>/10</th><th>Classwork<br>/10</th><th>Quiz<br>/10</th><th>Mid Marks<br>/20</th><th>Attendance /<br>Participation /5</th><th>Project /<br>Practical /5</th><th>Total /60</th>
+          </tr></thead>
+          <tbody id="marksBody"></tbody>
+        </table>
+      </div>
+      <p class="status" id="status" aria-live="polite"></p>
+      <p class="note">The component split shown here is an example: 10 + 10 + 10 + 20 + 5 + 5 = 60. Change it to match your university's official CCE scheme if different.</p>
+    </div>
+  </section>
+</main>
+
+<script src="SCRIPT.js"></script>
+</body>
+</html>

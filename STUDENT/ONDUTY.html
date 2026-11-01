@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On Duty | Joy University</title><link rel="stylesheet" href="STYLE.css"></head><body class="page-on-duty" data-page="on-duty">
+
+<main class="content">
+<div class="hero"><h2>On Duty</h2><p>Submit an on-duty request for approved academic, sports or university activities.</p></div>
+<div class="redirect-page-card"><div class="redirect-note">Fill in the on-duty details and attach supporting proof if required by the university.</div>
+<form onsubmit="submitRedirectForm(event,'ondutyStatus','On Duty request submitted successfully.')">
+<div class="redirect-form-grid">
+<div class="redirect-field"><label>Student Name</label><input required="" value="Student Name"/></div>
+<div class="redirect-field"><label>Register Number</label><input required="" value="STU-2026-001"/></div>
+<div class="redirect-field"><label>From Date</label><input required="" type="date"/></div>
+<div class="redirect-field"><label>To Date</label><input required="" type="date"/></div>
+<div class="redirect-field"><label>Activity / Event</label><input placeholder="Example: University event / competition" required=""/></div>
+<div class="redirect-field"><label>Organising Department</label><input placeholder="Department / Club / Cell" required=""/></div>
+<div class="redirect-field full"><label>Reason / Details</label><textarea placeholder="Enter the reason for on-duty attendance" required=""></textarea></div>
+<div class="redirect-field full"><label>Supporting Document (optional)</label><input accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" class="redirect-file" onchange="showSelectedFile(this,'ondutyFileName')" type="file"/><small class="muted" id="ondutyFileName">No file selected</small></div>
+</div><div class="redirect-actions"><button class="action-btn" type="submit">Submit On Duty Request</button><button class="action-btn" type="reset">Reset</button></div><div class="redirect-status" id="ondutyStatus"></div></form></div>
+</main>
+<script src="SCRIPT.js"></script>
+</body></html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Leave Letter for On Duty | Joy University</title><link rel="stylesheet" href="STYLE.css"></head><body class="page-leave-letter" data-page="leave-letter">
+
+<main class="content">
+<div class="hero"><h2>Leave Letter for On Duty</h2><p>Request a leave letter for days covered by an approved on-duty activity.</p></div>
+<div class="redirect-page-card"><div class="redirect-note">Use this page when you need a leave letter specifically connected to an on-duty activity. Upload the approval or supporting document.</div>
+<form onsubmit="submitRedirectForm(event,'ondutyLeaveStatus','Leave letter for On Duty submitted successfully.')">
+<div class="redirect-form-grid">
+<div class="redirect-field"><label>Student Name</label><input required="" value="Student Name"/></div>
+<div class="redirect-field"><label>Register Number</label><input required="" value="STU-2026-001"/></div>
+<div class="redirect-field"><label>Leave From</label><input required="" type="date"/></div>
+<div class="redirect-field"><label>Leave To</label><input required="" type="date"/></div>
+<div class="redirect-field"><label>On-Duty Activity</label><input placeholder="Name of activity / event" required=""/></div>
+<div class="redirect-field"><label>Faculty / Coordinator</label><input placeholder="Approving faculty" required=""/></div>
+<div class="redirect-field full"><label>Reason</label><textarea placeholder="Explain why leave is required for the on-duty activity" required=""></textarea></div>
+<div class="redirect-field full"><label>Upload On-Duty Approval / Proof</label><input accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" class="redirect-file" onchange="showSelectedFile(this,'ondutyLeaveFileName')" required="" type="file"/><small class="muted" id="ondutyLeaveFileName">No file selected</small></div>
+</div><div class="redirect-actions"><button class="action-btn" type="submit">Submit Leave Letter</button><button class="action-btn" type="reset">Reset</button></div><div class="redirect-status" id="ondutyLeaveStatus"></div></form></div>
+</main>
+<script src="SCRIPT.js"></script>
+</body></html>

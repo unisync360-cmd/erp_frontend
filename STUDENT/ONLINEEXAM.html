@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joy University | Online Quiz</title>
+<link rel="stylesheet" href="STYLE.css">
+</head>
+<body class="page-online-exam" data-page="online-exam">
+
+
+<main class="container">
+  <div class="ju-inpage-back"><button class="ju-back-btn" id="backButton" type="button">← Back</button></div>
+  <section id="listPage">
+    <p class="intro">Select a quiz to view its details and begin the online exam.</p>
+    <div class="subject-list" id="subjectList"></div>
+  </section>
+
+  <section id="detailsPage" class="hidden">
+    <div class="panel">
+      <h2 class="section-heading" id="detailTitle">Quiz details</h2>
+      <div class="subject-divider"></div>
+      <p id="detailSubject" style="margin:0"></p>
+      <div class="student-fields">
+        <div>
+          <label for="studentName">Name</label>
+          <input type="text" id="studentName" placeholder="Enter student name" autocomplete="name">
+        </div>
+        <div>
+          <label for="registrationNo">Registration No.</label>
+          <input type="text" id="registrationNo" placeholder="Enter registration number" autocomplete="off">
+        </div>
+      </div>
+      <p class="small-note">Enter your details before starting. Your answers will be included in the submission review.</p>
+      <button class="btn btn-primary" id="startButton">Start Quiz</button>
+    </div>
+  </section>
+
+  <section id="quizPage" class="hidden">
+    <div class="panel">
+      <div class="exam-meta">
+        <span id="quizLabel"></span>
+        <span class="timer" id="timer">Time left: 10:00</span>
+      </div>
+      <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+      <p class="small-note" id="questionCount"></p>
+      <h2 class="question" id="questionText"></h2>
+      <div class="options" id="options"></div>
+      <div class="actions">
+        <button class="btn btn-secondary" id="previousButton">Previous</button>
+        <button class="btn btn-primary" id="nextButton">Next</button>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:10px">
+      <h3 class="section-heading" style="font-size:14px">Question Review</h3>
+      <p class="small-note">Green = answered. Select a number to revisit that question.</p>
+      <div class="review-grid" id="reviewGrid"></div>
+      <button class="btn btn-primary submit-wide" id="submitButton">Submit Exam</button>
+    </div>
+  </section>
+
+  <section id="successPage" class="hidden">
+    <div class="panel">
+      <div class="success-mark">✓</div>
+      <h2 class="success-title">Submitted Successfully!</h2>
+      <p style="margin:0 0 12px">Your quiz has been submitted and your review is shown below.</p>
+      <div class="summary">
+        <div><strong>Student Name</strong><span id="resultName"></span></div>
+        <div><strong>Registration No.</strong><span id="resultReg"></span></div>
+        <div><strong>Quiz</strong><span id="resultQuiz"></span></div>
+        <div><strong>Subject</strong><span id="resultSubject"></span></div>
+        <div><strong>Marks</strong><span id="resultMarks"></span></div>
+        <div><strong>Answered</strong><span id="resultAnswered"></span></div>
+      </div>
+      <h3 class="section-heading" style="font-size:14px">Answer Review</h3>
+      <div id="answerReview"></div>
+      <p class="small-note" style="margin-top:12px">Demo interface: submissions are shown on this page only. Connect a backend to save them permanently.</p>
+      <button class="btn btn-primary" id="homeButton">Back to Quiz List</button>
+    </div>
+  </section>
+</main>
+
+
+<script src="SCRIPT.js"></script>
+</body>
+</html>

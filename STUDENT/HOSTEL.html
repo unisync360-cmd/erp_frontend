@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joy University - Hostel</title>
+<link rel="stylesheet" href="STYLE.css"></head>
+<body class="page-hostel" data-page="hostel">
+
+
+<main>
+<section class="nav-content active" id="hostelView"><h2>Hostel Room Request</h2><article class="room-card">
+<span class="status" id="roomStatus">Approved</span><h3 class="room-title" id="roomType">Four sharing Non AC</h3>
+<p class="academic-year">Academic Year : <span id="academicYear">2025-26</span></p>
+<div class="detail-row"><div class="detail-icon" aria-hidden="true">♜</div><div><p class="detail-label">Mess Packages</p><p class="detail-value" id="messPackage">Not Selected</p></div></div>
+<div class="detail-row"><div class="detail-icon" aria-hidden="true">▣</div><div><p class="detail-label">Requested On</p><p class="detail-value" id="requestedOn">4th Dec, 2025 | 05:25 PM</p></div></div>
+</article></section>
+<section class="nav-content" id="scanView"><div class="empty-panel"><div style="font-size:38px">▦</div><h2>Scan QR</h2><p>QR scanning can be connected here.</p></div></section>
+<section class="nav-content" id="gateView"><div class="empty-panel"><div style="font-size:38px">◇</div><h2>Gate Pass</h2><p>Your gate pass details will appear here.</p></div></section>
+</main>
+<button class="fab" id="addButton" aria-label="Request a hostel room">+</button>
+<nav class="bottom-nav" aria-label="Bottom navigation">
+<button class="nav-item active" data-view="hostelView"><span class="nav-icon">♙</span><span>Hostel</span></button>
+<button class="nav-item" data-view="scanView"><span class="nav-icon">▦</span><span>Scan QR</span></button>
+<button class="nav-item" data-view="gateView"><span class="nav-icon">◇</span><span>Gate Pass</span></button>
+</nav>
+<div class="modal-backdrop" id="requestModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal">
+<h3 id="modalTitle">Hostel Room Request</h3>
+<div class="form-row"><label for="roomSelect">Room Type</label><select id="roomSelect"><option>Four sharing Non AC</option><option>Four sharing AC</option><option>Two sharing Non AC</option><option>Two sharing AC</option></select></div>
+<div class="form-row"><label for="yearInput">Academic Year</label><input id="yearInput" value="2026-27"></div>
+<div class="form-row"><label for="messSelect">Mess Package</label><select id="messSelect"><option value="Not Selected">Not Selected</option><option>Vegetarian</option><option>Non-Vegetarian</option></select></div>
+<div class="modal-actions"><button class="btn" id="cancelButton">Cancel</button><button class="btn btn-primary" id="sendRequestButton">Submit Request</button></div>
+</div></div>
+<script src="SCRIPT.js"></script>
+</body></html>

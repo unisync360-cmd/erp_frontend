@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joy University | Examination Results</title>
+<link rel="stylesheet" href="STYLE.css">
+</head>
+<body class="page-results" data-page="results">
+
+<main>
+ <div class="crumb">Dashboard &nbsp;›&nbsp; <b>Examination Results</b></div>
+ <div class="page-head"><div><h2>Examination Results</h2><p>View your semester-wise grades, subject results and academic performance.</p></div><div class="actions no-print"><button class="secondary" onclick="resetFilters()">Reset</button><button class="primary" onclick="window.print()">Print / Save PDF</button></div></div>
+ <section class="card no-print">
+  <div class="filters">
+   <div class="field"><label for="semester">Semester</label><select id="semester"><option value="all">All semesters</option><option value="1">Semester I</option><option value="2" selected>Semester II</option><option value="3">Semester III</option><option value="4">Semester IV</option><option value="5">Semester V</option><option value="6">Semester VI</option><option value="7">Semester VII</option><option value="8">Semester VIII</option></select></div>
+   <div class="field"><label for="year">Academic year</label><select id="year"><option>2025–2026</option><option>2024–2025</option><option>2023–2024</option></select></div>
+   <button class="primary" onclick="applyFilters()">View Results</button>
+  </div>
+ </section>
+ <div class="result-banner" id="banner"><div><h3>Result Published</h3><p>Semester II · Academic Year 2025–2026 · Published on 18 October 2026</p></div><span class="pill">PASS · COMPLETED</span></div>
+ <section class="card" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-bottom:20px">
+  <div><small style="color:#806f75;font-size:11px;font-weight:700">STUDENT NAME</small><div style="font-weight:800;color:#741f35;margin-top:5px">Aarav Kumar</div></div>
+  <div><small style="color:#806f75;font-size:11px;font-weight:700">REGISTER NUMBER</small><div style="font-weight:800;margin-top:5px">JU2025CSE014</div></div>
+  <div><small style="color:#806f75;font-size:11px;font-weight:700">PROGRAMME</small><div style="font-weight:800;margin-top:5px">B.Tech – CSE</div></div>
+  <div><small style="color:#806f75;font-size:11px;font-weight:700">YEAR / SECTION</small><div style="font-weight:800;margin-top:5px">I Year / A</div></div>
+  <div><small style="color:#806f75;font-size:11px;font-weight:700">DATA TYPE</small><div style="font-weight:800;color:#9b3048;margin-top:5px">SAMPLE RECORD</div></div>
+ </section>
+ <section class="stats" id="stats">
+  <div class="stat"><small>SGPA</small><strong id="sgpa">8.42</strong><span>Semester Grade Point Average</span></div>
+  <div class="stat"><small>CGPA</small><strong id="cgpa">8.31</strong><span>Cumulative Grade Point Average</span></div>
+  <div class="stat"><small>Total Credits</small><strong id="credits">22</strong><span>Credits registered</span></div>
+  <div class="stat"><small>Result Status</small><strong style="color:var(--green)">PASS</strong><span>All subjects cleared</span></div>
+ </section>
+ <section class="card">
+  <div class="section-title"><h3>Subject-wise Results</h3><span id="count">5 subjects</span></div>
+  <div class="table-wrap">
+   <table><thead><tr><th>Subject code</th><th>Subject name</th><th>Marks</th><th>Credits</th><th>Grade</th><th>Grade points</th><th>Result</th></tr></thead><tbody id="rows"></tbody></table>
+   <div class="empty" id="empty">No subjects match your search. Try another subject or semester.</div>
+  </div>
+ </section>
+ <section class="card">
+  <div class="section-title"><h3>Important information</h3></div>
+  <ul style="padding-left:19px;margin:0;color:#69758a;font-size:13px;line-height:1.9">
+   <li>This page uses fictional sample student details, marks and grades only to demonstrate the results layout. Replace them with verified university records before publishing.</li>
+   <li>For any discrepancy in marks or grades, contact the Examination Cell.</li>
+   <li>Printed copy is for reference; official transcripts must be issued by the university.</li>
+  </ul>
+ </section>
+ <div class="footer-note">© 2026 Joy University · Examination Cell · Student Academic Portal</div>
+</main>
+
+<script src="SCRIPT.js"></script>
+</body>
+</html>

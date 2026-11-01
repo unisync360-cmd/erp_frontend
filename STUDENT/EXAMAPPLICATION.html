@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Examination Application | Joy University</title>
+<link rel="stylesheet" href="STYLE.css">
+
+</head>
+<body class="page-exam-application" data-page="exam-application">
+
+<!-- NOTE: <article>, not <section> — the page shell resets padding/background on direct <section> children -->
+<article class="student-card" aria-label="Student profile">
+  <div class="student-card-top">
+    <div class="student-avatar" data-student-avatar aria-hidden="true"></div>
+    <div class="student-who">
+      <small>Student Profile</small>
+      <h2 data-student-name>Chaithanya</h2>
+    </div>
+    <span class="student-status"><i aria-hidden="true"></i>Active Student</span>
+  </div>
+  <dl class="student-meta">
+    <div><dt>Student ID</dt><dd>JU2026XXXX</dd></div>
+    <div><dt>Programme</dt><dd>B.Tech</dd></div>
+    <div><dt>Academic Year</dt><dd>2026–2027</dd></div>
+  </dl>
+  <p class="student-note">Sample student details are shown for demonstration.</p>
+</article>
+
+<section>
+  <div class="heading"><div><small>ACADEMIC RECORD</small><h2>Semester Results &amp; Status</h2></div><span class="muted">Semester I – VI</span></div>
+  <div id="results" class="semesters"></div>
+</section>
+
+<section>
+  <div class="heading"><div><small>EXAMINATION REGISTRATION</small><h2>Apply for Examination</h2></div></div>
+  <div class="applications">
+    <article class="app-card"><div class="app-icon">R</div><div><small>REGULAR EXAMINATION</small><h3>Apply Semester Examination</h3><p>Register for the current regular semester examination. Select the semester and eligible subjects.</p><button id="regular" class="btn" type="button">Apply Semester Examination →</button></div></article>
+    <article class="app-card"><div class="app-icon">S</div><div><small>SUPPLEMENTARY EXAMINATION</small><h3>Apply for Supplementary Examination</h3><p>If a previous semester has pending subjects, select those subjects and apply.</p><button id="supply" class="btn outline" type="button">Apply for Supplementary Examination →</button></div></article>
+  </div>
+</section>
+
+<!-- ===== POPUP 1 : application form ===== -->
+<div id="application" class="jum-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+  <div class="jum-modal wide">
+    <button type="button" class="jum-x" id="closeForm" aria-label="Close">&times;</button>
+    <h3 id="formTitle">Application Form</h3>
+    <div class="jum-row">
+      <label class="jum-field"><span>Application Type</span><input id="appType" readonly></label>
+      <label class="jum-field"><span>Select Semester</span><select id="semester"></select></label>
+    </div>
+    <div class="subhead"><div><b>Select Subjects</b><small id="subjectHelp">Select eligible subjects.</small></div><button id="selectAll" class="textbtn" type="button">Select all</button></div>
+    <div id="subjects" class="subjects"></div>
+    <div class="total"><span>Selected subjects: <b id="count">0</b></span><span>Fee per subject: <b>₹500</b></span><strong>Total examination fee: <b id="amount">₹0</b></strong></div>
+    <div class="jum-actions"><button id="cancel" class="jum-btn" type="button">Cancel</button><button id="continue" class="jum-btn primary" type="button">Continue to Payment →</button></div>
+    <p class="hint">Both regular and supplementary applications use the same payment process.</p>
+  </div>
+</div>
+
+<!-- ===== POPUP 2 : payment ===== -->
+<div id="payment" class="jum-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="payTitle">
+  <div class="jum-modal wide">
+    <button type="button" class="jum-x" id="payClose" aria-label="Close">&times;</button>
+    <h3 id="payTitle">Examination Fee Payment</h3>
+    <div class="paygrid">
+      <div>
+        <div class="boxhead">Choose Payment Method</div>
+        <div class="methods">
+          <label><input type="radio" name="method" value="UPI"> UPI</label><label><input type="radio" name="method" value="PhonePe"> PhonePe</label><label><input type="radio" name="method" value="Google Pay"> Google Pay</label><label><input type="radio" name="method" value="Paytm"> Paytm</label><label><input type="radio" name="method" value="Debit Card"> Debit Card</label><label><input type="radio" name="method" value="Credit Card"> Credit Card</label><label><input type="radio" name="method" value="Net Banking"> Net Banking</label>
+        </div>
+        <div class="warning"><b>Demo mode:</b> Use fictional/sample details only. This page is not connected to a bank or payment gateway. Never enter your real card number, CVV, UPI PIN, banking password or other financial credentials.</div>
+        <div id="paymentDetails" class="payment-details"><p class="muted">Select a payment method to enter its demo details.</p></div>
+      </div>
+      <aside class="summarybox"><div class="boxhead">Application Summary</div><div id="summary"></div></aside>
+    </div>
+    <div class="jum-actions"><button id="back" class="jum-btn" type="button">← Back</button><button id="pay" class="jum-btn primary" type="button">Proceed to Pay</button></div>
+  </div>
+</div>
+
+<!-- ===== POPUP 3 : receipt ===== -->
+<div id="receipt" class="jum-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="receiptTitle">
+  <div class="jum-modal">
+    <button type="button" class="jum-x" id="receiptClose" aria-label="Close">&times;</button>
+    <div class="receipt-head"><div class="logo"><img data-ju-logo alt=""></div><div><b>JOY UNIVERSITY</b><small>Examination &amp; Results Department</small></div><span class="badge good">PAID · DEMO</span></div>
+    <div class="success">✓</div>
+    <h3 id="receiptTitle" class="center receipt-title">Payment Successful</h3>
+    <p class="center muted">Your demonstration application receipt is ready.</p>
+    <div class="receipt-no">Receipt / Application ID <b id="receiptId"></b></div>
+    <div id="receiptDetails"></div>
+    <p class="hint center">Computer-generated demonstration receipt; not official proof of payment.</p>
+    <div class="jum-actions center-actions"><button id="print" class="jum-btn primary" type="button">Print Receipt</button><button id="home" class="jum-btn" type="button">Back to Examination Application</button></div>
+  </div>
+</div>
+
+<script src="SCRIPT.js"></script>
+</body>
+</html>

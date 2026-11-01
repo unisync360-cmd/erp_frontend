@@ -1,0 +1,733 @@
+/* ==========================================
+   JOY UNIVERSITY - DEAN DASHBOARD
+   style.css  (all CSS)
+   ========================================== */
+
+/* ---------- CSS PART 1: style block 1 ---------- */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Times NEW Roman "serif}
+:root{
+  --red:#7a0f16;--red-dark:#4d080d;--red-soft:#eee5e6;
+  --gray:#747474;--gray-dark:#3f3f3f;--ink:#262626;
+  --line:#dedede;--bg:#f3f3f3;--white:#fff;
+  --serif:Georgia,"Times New Roman",serif;
+}
+body{background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+button,input{font-family:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* SIDEBAR */
+.sidebar{position:fixed;inset:0 auto 0 0;width:250px;background:var(--red);border-right:1px solid var(--red);z-index:1000;overflow-y:auto;transition:.3s}
+.logo-area{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.45);text-align:center;background:var(--red)}
+.logo-area img{width:100%;max-width:190px;height:auto;display:block;margin:auto}
+.menu{padding:12px;background:var(--red)}
+.menu-title{font-size:11px;color:#fff;padding:14px 11px 6px;letter-spacing:.5px}
+.menu a{display:flex;align-items:center;gap:12px;padding:10px 12px;margin:2px 0;border-radius:8px;color:#fff;font-size:13px;transition:.2s}
+.menu a:hover{background:var(--red-soft);color:var(--red-dark)}
+.menu a.active{background:rgba(255,255,255,.16);color:#fff}
+.menu-icon{width:20px;text-align:center}
+
+/* MOBILE SIDEBAR CLOSE */
+
+
+/* MOBILE SIDEBAR OVERLAY — tap/click outside the menu to close */
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.28);z-index:999;cursor:pointer}
+@media(max-width:900px){.sidebar-overlay.open{display:block}}
+
+/* HEADER */
+.main{margin-left:250px;min-height:100vh}
+.top-header{height:76px;background:var(--white);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;position:sticky;top:0;z-index:500}
+.header-left,.header-right{display:flex;align-items:center;gap:16px}
+.menu-btn{display:none;width:42px;height:42px;border:none;border-radius:8px;background:var(--red-soft);color:var(--red);font-size:24px;font-weight:700;line-height:1;cursor:pointer;transition:.2s}
+.page-title h1{font-family:var(--serif);font-size:21px;font-weight:600}
+.page-title p{font-size:12px;color:var(--gray);margin-top:2px}
+.notification{width:40px;height:40px;border:none;border-radius:50%;background:var(--red-soft);cursor:pointer;font-size:16px;position:relative}
+.notification::after{content:"";position:absolute;width:9px;height:9px;background:var(--red);border-radius:50%;top:6px;right:7px;border:2px solid #fff}
+.student-profile{display:flex;align-items:center;gap:10px;padding-left:16px;border-left:1px solid var(--line)}
+.student-details{text-align:right}
+.student-details strong{display:block;font-size:14px}
+.student-details span{font-size:11px;color:var(--gray)}
+.profile-photo{width:46px;height:46px;border-radius:50%;background:var(--gray);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;border:2px solid var(--red)}
+
+/* CONTENT */
+.content{padding:26px 30px 40px}
+.welcome{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--red);color:#fff;border-radius:14px;padding:26px 28px;margin-bottom:26px;position:relative;overflow:hidden}
+.welcome::after{content:"";position:absolute;right:0;top:0;bottom:0;width:34%;background:var(--gray);clip-path:polygon(28% 0,100% 0,100% 100%,0 100%);opacity:.9}
+.welcome>*{position:relative;z-index:2}
+.welcome h2{font-family:var(--serif);font-size:25px;font-weight:600;margin-bottom:6px}
+.welcome p{font-size:13px;color:#fbe3e5}
+.welcome-date{text-align:right}
+.welcome-date strong{display:block;font-size:14px}
+.welcome-date span{font-size:12px;font-style:italic;font-family:var(--serif)}
+
+.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.section-title h2{font-size:17px;font-family:var(--serif)}
+.section-title span{font-size:11px;color:var(--gray)}
+
+/* STAT RINGS */
+.story-row{display:flex;gap:26px;overflow-x:auto;padding:4px 4px 20px;margin-bottom:14px}
+.story-card{min-width:118px;text-align:center}
+.story-ring{width:100px;height:100px;margin:auto;border-radius:50%;background:conic-gradient(var(--red) calc(var(--p)*1%),#dcdcdc 0);display:flex;align-items:center;justify-content:center}
+.story-inner{width:84px;height:84px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;font-weight:700;color:var(--red-dark)}
+.story-card h3{margin-top:8px;font-size:13px}
+.story-card p{font-size:10px;color:var(--gray);margin-top:2px}
+
+/* GRID */
+.dashboard-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}
+.card-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.card-title h3{font-size:15px;font-family:var(--serif)}
+.view-all{font-size:11px;color:var(--red);font-weight:600}
+.class-item{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #f0f0f0}
+.class-item:last-child,.announcement:last-child{border-bottom:none}
+.class-time{min-width:68px;color:var(--red);font-size:11px;font-weight:700}
+.class-info{flex:1}
+.class-info h4{font-size:13px;margin-bottom:3px}
+.class-info p{font-size:11px;color:var(--gray)}
+.status{padding:4px 9px;border-radius:20px;font-size:10px}
+.completed{background:#e8f3ea;color:#25703a}
+.upcoming{background:var(--red-soft);color:var(--red-dark)}
+.announcement{display:flex;gap:11px;padding:12px 0;border-bottom:1px solid #f0f0f0}
+.announcement-icon{width:36px;height:36px;border-radius:8px;background:var(--red-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.announcement h4{font-size:12px;margin-bottom:3px}
+.announcement p{font-size:11px;color:var(--gray)}
+.quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.quick-action{background:#fafafa;border:1px solid var(--line);border-radius:10px;padding:12px 6px;text-align:center;transition:.2s}
+.quick-action:hover{background:var(--red-soft);border-color:var(--red)}
+.quick-icon{font-size:20px}
+.quick-action span{display:block;margin-top:5px;font-size:11px;font-weight:600}
+footer{margin-top:28px;border-top:1px solid var(--line);padding:16px 0;text-align:center;color:var(--gray);font-size:11px;font-family:var(--serif);font-style:italic}
+
+/* FLOATING AI CHAT */
+.ai-fab{position:fixed;right:18px;bottom:82px;height:42px;padding:0 14px 0 11px;border:none;border-radius:21px;background:var(--red);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer;box-shadow:0 6px 18px rgba(176,28,38,.32);z-index:1500;transition:transform .2s,background .2s}
+.ai-fab:hover{background:var(--red-dark);transform:translateY(-2px)}
+.ai-fab.hidden{display:flex}.ai-fab.ai-open{width:42px;padding:0;justify-content:center;font-size:17px}
+.ai-panel{position:fixed;right:24px;bottom:158px;width:390px;max-width:calc(100vw - 32px);height:600px;max-height:calc(100vh - 48px);background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.22);display:flex;flex-direction:column;overflow:hidden;z-index:1600;transform-origin:bottom right;transform:scale(.92) translateY(14px);opacity:0;pointer-events:none;transition:.22s}
+.ai-panel.open{transform:none;opacity:1;pointer-events:auto}
+.ai-head{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.ai-avatar{width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700}
+.ai-head-text{flex:1}
+.ai-head-text strong{display:block;font-size:14px}
+.ai-head-text span{font-size:11px;color:var(--gray)}
+.ai-new{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 11px;font-size:12px;font-weight:600;cursor:pointer;color:var(--gray-dark)}
+.ai-new:hover{border-color:var(--red);color:var(--red)}
+.ai-close{border:none;background:none;font-size:22px;color:var(--gray);cursor:pointer;width:30px;height:30px;border-radius:6px}
+.ai-close:hover{background:var(--bg)}
+.ai-body{flex:1;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:14px}
+.ai-empty{margin:auto;text-align:center}
+.ai-empty h3{font-family:var(--serif);font-size:20px;margin-bottom:6px}
+.ai-empty p{font-size:12px;color:var(--gray);margin-bottom:16px}
+.ai-chips{display:flex;flex-direction:column;gap:8px}
+.ai-chips button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px;font-size:12px;text-align:left;cursor:pointer;color:var(--gray-dark)}
+.ai-chips button:hover{border-color:var(--red);background:var(--red-soft)}
+.msg{max-width:86%;font-size:13px;line-height:1.55;padding:10px 13px;border-radius:14px;white-space:pre-wrap}
+.msg.user{align-self:flex-end;background:var(--red);color:#fff;border-bottom-right-radius:4px}
+.msg.bot{align-self:flex-start;background:#f1f1f2;border-bottom-left-radius:4px}
+.msg.typing{color:var(--gray)}
+.ai-foot{padding:12px 14px 14px;border-top:1px solid var(--line)}
+.ai-input{display:flex;align-items:flex-end;gap:8px;border:1px solid #d4d4d4;border-radius:14px;padding:6px 6px 6px 14px}
+.ai-input:focus-within{border-color:var(--red)}
+.ai-input textarea{flex:1;border:none;outline:none;resize:none;font-size:13px;font-family:inherit;max-height:100px;padding:8px 0;background:transparent}
+.ai-send{width:36px;height:36px;border:none;border-radius:10px;background:var(--red);color:#fff;font-size:16px;cursor:pointer;flex-shrink:0}
+.ai-send:disabled{background:#d4d4d4;cursor:default}
+.ai-note{text-align:center;font-size:10px;color:var(--gray);margin-top:7px}
+
+
+/* ACADEMIC DEAN SEARCH */
+.dean-story-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;overflow:visible}.dean-story-row .story-card{min-width:0}.dean-ring{width:82px;height:82px;background:var(--red)}.dean-ring .story-inner{width:68px;height:68px;font-size:22px;background:#fff;color:var(--red-dark)}
+@media(max-width:600px){.dean-story-row{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;width:100%;padding:2px 0 12px}.dean-story-row .story-card{width:100%;min-width:0}.dean-story-row .story-ring{width:clamp(52px,17vw,68px);height:clamp(52px,17vw,68px)}.dean-story-row .story-inner{width:calc(clamp(52px,17vw,68px) - 12px);height:calc(clamp(52px,17vw,68px) - 12px);font-size:clamp(16px,5vw,20px)}.dean-story-row .story-card h3{font-size:clamp(10px,3.1vw,12px);margin-top:6px;white-space:nowrap}.dean-story-row .story-card p{font-size:9px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.section-title{margin-bottom:7px}.section-title h2{font-size:15px}.section-title span{font-size:10px}.student-details strong{font-size:11px}.student-details span{font-size:9px}.profile-photo{font-size:10px}}
+
+/* RESPONSIVE */
+@media(max-width:1200px){.dashboard-grid{grid-template-columns:1fr 1fr}.wide-card{grid-column:span 2}}
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%)}.sidebar.open{transform:none}
+  .main{margin-left:0}.menu-btn{display:block}
+  .dashboard-grid{grid-template-columns:1fr}.wide-card{grid-column:span 1}
+}
+@media(max-width:600px){
+  .top-header{padding:0 10px;height:66px}.content{padding:16px 12px 90px}
+  .welcome{display:block;padding:18px;border-radius:12px;margin-bottom:16px}.welcome h2{font-size:19px}.welcome p{font-size:11px;line-height:1.45}.welcome-date{text-align:left;margin-top:10px}
+  .student-details{display:none}.student-profile{border-left:none;padding-left:0}
+  .quick-actions{grid-template-columns:1fr 1fr}
+  .ai-fab{right:12px;bottom:66px;height:38px;padding:0 12px 0 10px;border-radius:19px;font-size:10px;gap:5px}
+  .ai-fab.ai-open{width:38px;font-size:16px}
+  .ai-panel{right:8px;bottom:136px;width:calc(100vw - 16px);height:calc(100vh - 16px);max-height:none;border-radius:14px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Academic Dean navigation */
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+.menu a{cursor:pointer}
+.menu a.active{background:rgba(255,255,255,.16);color:#fff}
+.dean-info-panels{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}
+.dean-panel{scroll-margin-top:90px}
+.dean-panel p{font-size:12px;color:var(--gray);line-height:1.55}
+@media(max-width:600px){
+  .dean-info-panels{grid-template-columns:1fr;gap:12px}
+  .dean-panel{padding:15px}
+  .menu a{font-size:13px;padding:11px 12px}
+}
+
+.open-panel-box{max-height:90vh;padding:16px}
+
+/* FULL MENU OPENING SYSTEM */
+.menu a[data-section], #menuAi{cursor:pointer}
+.open-panel{
+  position:fixed;inset:0;background:rgba(0,0,0,.48);display:flex;align-items:center;
+  justify-content:center;padding:18px;z-index:3000;opacity:0;visibility:hidden;
+  pointer-events:none;transition:opacity .2s,visibility .2s;
+}
+.open-panel.show{opacity:1;visibility:visible;pointer-events:auto}
+.open-panel-box{
+  width:min(820px,100%);max-height:88vh;overflow:auto;background:#fff;border-radius:16px;
+  border:1px solid var(--line);box-shadow:0 24px 70px rgba(0,0,0,.28);padding:22px;
+}
+.open-panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:18px}
+.open-panel-head h2{font-family:var(--serif);font-size:22px}
+.panel-close{width:38px;height:38px;border:1px solid var(--line);background:#fff;
+  border-radius:9px;font-size:22px;cursor:pointer;color:var(--gray-dark)}
+.panel-close:hover{background:var(--red-soft);color:var(--red)}
+.panel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.panel-item{border:1px solid var(--line);border-radius:11px;padding:16px;background:#fafafa}
+.panel-item h4{font-size:14px;margin-bottom:6px}
+.panel-item p{font-size:11px;color:var(--gray);line-height:1.55}
+.panel-action{margin-top:11px;border:0;background:var(--red);color:#fff;border-radius:7px;
+  padding:8px 12px;font-size:11px;cursor:pointer}
+.panel-action:hover{background:var(--red-dark)}
+.open-card{cursor:pointer;transition:.2s}
+.open-card:hover{transform:translateY(-3px)}
+@media(max-width:600px){
+  .open-panel{padding:9px}.open-panel-box{max-height:92vh;padding:16px;border-radius:13px}
+  .panel-grid{grid-template-columns:1fr}.open-panel-head h2{font-size:19px}
+}
+
+
+/* FINAL MENU CONTROLS */
+.sidebar .menu a.menu-open{
+  cursor:pointer;
+  user-select:none;
+}
+
+
+.profile-modal{position:fixed;inset:0;background:rgba(0,0,0,.42);display:flex;align-items:center;justify-content:center;padding:20px;z-index:5000;opacity:0;visibility:hidden;pointer-events:none;transition:.2s}
+.profile-modal.open{opacity:1;visibility:visible;pointer-events:auto}
+.profile-modal-card{width:min(470px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:18px;padding:26px;box-shadow:0 22px 70px rgba(0,0,0,.28);position:relative;text-align:center}
+.profile-modal-close{position:absolute;right:12px;top:10px;width:34px;height:34px;border:0;border-radius:50%;background:#f4eeee;color:#6f171b;font-size:24px;cursor:pointer}
+.profile-modal-avatar{width:70px;height:70px;border-radius:50%;margin:0 auto 12px;background:#6f171b;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;border:3px solid #eee}
+.profile-modal-card h2{font-family:var(--serif,Georgia,serif);font-size:21px;margin:0 0 4px}
+.profile-role{margin:0 0 18px;color:#777;font-size:11px}
+.profile-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left}
+.profile-info-grid>div{border:1px solid var(--line,#e5e5e5);border-radius:10px;padding:11px;background:#fafafa}
+.profile-info-grid span{display:block;color:#777;font-size:9px;margin-bottom:4px}
+.profile-info-grid strong{display:block;color:#333;font-size:11px;line-height:1.35}
+.profile-status{color:#23703a!important}
+.profile-done{margin-top:18px;border:0;border-radius:9px;padding:10px 22px;background:#6f171b;color:#fff;font-weight:700;cursor:pointer}
+.student-profile,.faculty-profile-top{cursor:pointer}
+.logout-settings-btn{margin-top:10px}
+.logout-card{margin-top:16px}
+.logout-settings{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.logout-settings h4{font-size:13px;margin-bottom:5px}
+.dean-logout-btn{margin-top:10px;border:0;border-radius:8px;padding:10px 16px;background:var(--red);color:#fff;font-size:12px;font-weight:700;cursor:pointer}
+.dean-logout-btn:hover{background:var(--red-dark)}
+@media(max-width:600px){.profile-info-grid{grid-template-columns:1fr}.profile-modal-card{padding:22px 17px}}
+
+
+/* DEAN HEADER BRAND */
+.header-brand{display:flex;align-items:center;height:58px;overflow:hidden}
+.header-brand img{display:block;width:300px;max-width:42vw;height:auto;max-height:58px;object-fit:contain;object-position:left center}
+@media(max-width:600px){
+  .header-brand{height:48px;max-width:calc(100vw - 105px)}
+  .header-brand img{width:210px;max-width:100%;max-height:46px}
+}
+
+/* NOTIFICATIONS */
+.notification-panel{position:fixed;top:86px;right:28px;width:min(390px,calc(100vw - 28px));background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 55px rgba(0,0,0,.20);z-index:4500;display:none;overflow:hidden}
+.notification-panel.open{display:block}
+.notification-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.notification-head h3{font-family:var(--serif);font-size:17px}
+.notification-head button{border:0;background:#f5eeee;color:var(--red);width:30px;height:30px;border-radius:8px;font-size:20px;cursor:pointer}
+.notification-item{display:flex;gap:11px;padding:13px 16px;border-bottom:1px solid #f0f0f0;cursor:pointer}
+.notification-item:last-child{border-bottom:0}
+.notification-item:hover{background:#faf5f5}
+.notification-dot{width:9px;height:9px;border-radius:50%;background:var(--red);margin-top:5px;flex-shrink:0}
+.notification-item strong{display:block;font-size:12px;margin-bottom:3px}
+.notification-item p{font-size:11px;color:var(--gray);line-height:1.45}
+@media(max-width:600px){.notification-panel{top:74px;right:10px;width:calc(100vw - 20px)}}
+
+/* ===== Academic Dean reference-header styling ===== */
+.logo-area{
+  padding:14px 12px;
+  background:var(--red);
+  border-bottom:1px solid rgba(255,255,255,.45);
+}
+.logo-area img{
+  width:100%;
+  max-width:226px;
+  height:auto;
+  display:block;
+  margin:auto;
+  border-radius:18px;
+}
+.header-brand{
+  display:flex;
+  align-items:center;
+  height:58px;
+  min-width:0;
+  overflow:hidden;
+}
+.header-brand h1{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  font-size:30px;
+  line-height:1;
+  font-weight:700;
+  color:#202124;
+  white-space:nowrap;
+}
+.top-header-search{
+  width:230px;
+  flex:0 0 230px;
+  margin-left:auto;
+}
+.top-header-search input{
+  height:54px;
+  border:2px solid #dedede;
+  border-radius:18px;
+  background:#fff;
+  font-size:16px;
+  padding-left:44px;
+}
+.top-header-search span{
+  left:16px;
+  top:10px;
+  font-size:31px;
+  line-height:31px;
+  color:#666;
+  transform:rotate(-20deg);
+}
+.notification{
+  width:56px;
+  height:56px;
+  background:transparent;
+  border-radius:50%;
+  font-size:32px;
+}
+.notification::after{display:none}
+.notification-count{
+  position:absolute;
+  top:-1px;
+  right:-1px;
+  min-width:31px;
+  height:31px;
+  padding:0 7px;
+  border-radius:18px;
+  background:var(--red);
+  color:#fff;
+  border:2px solid #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
+  font-weight:800;
+  line-height:1;
+}
+.profile-photo.graduation-profile{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:#fff;
+  color:var(--red);
+  border:2px solid var(--red);
+  font-size:30px;
+}
+@media(max-width:900px){
+  .top-header{gap:10px}
+  .header-left{gap:10px;min-width:0;flex:1}
+  .header-brand{height:50px;min-width:0;flex:1}
+  .header-brand h1{font-size:24px;overflow:hidden;text-overflow:ellipsis}
+  .header-right{gap:5px}
+  .notification{width:50px;height:50px;font-size:28px}
+  .notification-count{min-width:26px;height:26px;font-size:14px}
+  .profile-photo.graduation-profile{width:50px;height:50px;font-size:26px}
+}
+@media(max-width:600px){
+  .top-header{padding:0 10px;height:66px}
+  .header-brand h1{font-size:20px}
+  .notification{width:46px;height:46px;font-size:25px}
+  .notification-count{top:-2px;right:-2px;min-width:23px;height:23px;font-size:12px}
+  .profile-photo.graduation-profile{width:46px;height:46px;font-size:23px}
+  .logo-area img{max-width:220px;border-radius:15px}
+}
+
+
+/* ===== Three-option expandable Dean menu ===== */
+.menu{padding:12px 10px}
+.menu-group-btn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border:0;
+  background:transparent;
+  color:#fff;
+  padding:14px 12px;
+  margin:3px 0;
+  border-radius:9px;
+  font:600 14px "Segoe UI",Arial,sans-serif;
+  text-align:left;
+  cursor:pointer;
+  transition:.2s;
+}
+.menu-group-btn:hover,
+.menu-group-btn.open{
+  background:rgba(255,255,255,.14);
+}
+.menu-chevron{
+  font-size:25px;
+  line-height:16px;
+  transition:transform .2s;
+}
+.menu-group-btn.open .menu-chevron{transform:rotate(90deg)}
+.menu-submenu{
+  display:none;
+  padding:2px 0 7px 9px;
+  animation:menuDrop .18s ease;
+}
+.menu-submenu.open{display:block}
+.menu-submenu a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 11px;
+  margin:2px 0;
+  border-radius:8px;
+  color:#fff;
+  font-size:12px;
+  transition:.2s;
+}
+.menu-submenu a:hover{background:var(--red-soft);color:var(--red-dark)}
+.menu-submenu a.active{background:rgba(255,255,255,.16);color:#fff}
+@keyframes menuDrop{
+  from{opacity:0;transform:translateY(-4px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Compact AI assistant */
+.ai-fab{height:42px;padding:0 14px 0 11px;border-radius:21px;font-size:11px;gap:6px}
+.ai-fab.ai-open{width:42px;padding:0;font-size:17px}
+@media(max-width:600px){.ai-fab{height:38px;padding:0 12px 0 10px;border-radius:19px;font-size:10px;gap:5px}.ai-fab.ai-open{width:38px;font-size:16px}}
+
+/* ---------- CSS PART 2: dean-full-page-panels-fix ---------- */
+/* =========================================================
+   FULL-PAGE DEAN ERP TABS FIX
+   Applies to Departments, Faculty, Students, Fees, Timetable,
+   Exams, Attendance, Announcements, Documents and Reports.
+   ========================================================= */
+
+/* The ERP tab itself is a complete viewport page, not a small modal. */
+html, body{
+  min-height:100%;
+}
+
+.erp-panel{
+  position:fixed !important;
+  inset:0 !important;
+  width:100vw !important;
+  height:100dvh !important;
+  min-height:100vh !important;
+  padding:0 !important;
+  margin:0 !important;
+  display:none;
+  align-items:stretch !important;
+  justify-content:stretch !important;
+  overflow:hidden !important;
+  z-index:9998 !important;
+  background:rgba(0,0,0,.48);
+}
+
+.erp-panel.open{
+  display:flex !important;
+}
+
+/* Full white page inside the overlay. */
+.erp-panel .erp-card{
+  width:100% !important;
+  max-width:none !important;
+  height:100dvh !important;
+  min-height:100vh !important;
+  max-height:none !important;
+  margin:0 !important;
+  border-radius:0 !important;
+  overflow:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  background:#fff !important;
+  box-shadow:none !important;
+}
+
+/* Header remains visible while records scroll below it. */
+.erp-panel .erp-head{
+  flex:0 0 auto !important;
+  position:sticky;
+  top:0;
+  z-index:3;
+  background:#fff;
+  padding:20px 25px 15px;
+}
+
+/* Toolbar stays usable on every screen size. */
+.erp-panel .erp-toolbar{
+  flex:0 0 auto !important;
+  background:#fff;
+  z-index:2;
+}
+
+/* Only the records area scrolls, so the complete tab remains usable. */
+.erp-panel .erp-table-wrap{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  width:100% !important;
+  overflow:auto !important;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  padding-bottom:30px;
+}
+
+/* Keep wide ERP tables usable on phones with horizontal scrolling. */
+.erp-panel .erp-table{
+  min-width:850px;
+}
+
+/* Mobile: use the entire phone screen with no clipped top/bottom. */
+@media(max-width:650px){
+  .erp-panel{
+    width:100vw !important;
+    height:100dvh !important;
+    min-height:100vh !important;
+    padding:0 !important;
+  }
+
+  .erp-panel .erp-card{
+    width:100vw !important;
+    height:100dvh !important;
+    min-height:100vh !important;
+    max-height:none !important;
+    border-radius:0 !important;
+  }
+
+  .erp-panel .erp-head{
+    padding:16px 14px 13px !important;
+    gap:10px;
+  }
+
+  .erp-panel .erp-head h2{
+    font-size:20px;
+    line-height:1.2;
+  }
+
+  .erp-panel .erp-head p{
+    font-size:11px;
+    line-height:1.4;
+    max-width:calc(100vw - 80px);
+  }
+
+  .erp-panel .erp-close{
+    flex:0 0 38px;
+    width:38px;
+    height:38px;
+  }
+
+  .erp-panel .erp-toolbar{
+    padding:12px 14px !important;
+    gap:10px;
+  }
+
+  .erp-panel .erp-tools{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .erp-panel .erp-tools input,
+  .erp-panel .erp-tools .add-dept-btn{
+    width:100% !important;
+    min-height:42px;
+    box-sizing:border-box;
+  }
+
+  .erp-panel .erp-table-wrap{
+    padding:0 10px 24px !important;
+  }
+
+  .erp-panel .erp-table th{
+    position:sticky;
+    top:0;
+    z-index:1;
+    padding:11px 10px;
+  }
+
+  .erp-panel .erp-table td{
+    padding:12px 10px;
+  }
+}
+
+/* Safe-area support for phones with display cutouts/navigation areas. */
+@supports(padding:max(0px)){
+  .erp-panel .erp-head{
+    padding-top:max(16px, env(safe-area-inset-top));
+  }
+
+  .erp-panel .erp-table-wrap{
+    padding-bottom:max(24px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Add/Edit forms also use the full available screen and never get clipped. */
+.erp-form-modal{
+  padding:10px !important;
+}
+
+.erp-form-card{
+  width:min(620px,100%) !important;
+  max-width:100% !important;
+  max-height:calc(100dvh - 20px) !important;
+  overflow:auto !important;
+  -webkit-overflow-scrolling:touch;
+}
+
+@media(max-width:650px){
+  .erp-form-modal{
+    padding:0 !important;
+  }
+
+  .erp-form-card{
+    width:100vw !important;
+    height:100dvh !important;
+    max-height:100dvh !important;
+    border-radius:0 !important;
+    padding:18px 14px !important;
+  }
+}
+
+/* ---------- CSS PART 3: style block 3 ---------- */
+.menu-settings-panel{position:fixed;inset:0;background:rgba(0,0,0,.28);z-index:5000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;pointer-events:none;transition:.2s}
+.menu-settings-panel.open{opacity:1;visibility:visible;pointer-events:auto}
+.menu-settings-card{width:min(720px,100%);background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 24px 70px rgba(0,0,0,.25)}
+.menu-settings-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+.menu-settings-head h2{font-family:var(--serif);font-size:26px;margin:4px 0 6px}
+.menu-settings-head p{color:var(--gray);font-size:14px}
+.menu-settings-close{width:38px;height:38px;border:0;border-radius:50%;background:#f4eeee;color:var(--red);font-size:26px;cursor:pointer}
+.menu-settings-actions{display:grid;gap:12px;margin-top:24px}
+.menu-settings-actions .dean-password-btn,.menu-settings-actions .dean-logout-btn{width:100%;min-height:52px;border:0;border-radius:12px;color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+.menu-settings-actions .dean-password-btn{background:#3f3f3f}
+.menu-settings-actions .dean-logout-btn{background:var(--red)}
+@media(max-width:600px){.menu-settings-card{padding:20px}.menu-settings-head h2{font-size:22px}}
+
+/* ---------- CSS PART 4: style block 4 ---------- */
+.erp-panel{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.58);display:none;align-items:center;justify-content:center;padding:18px}
+.erp-panel.open{display:flex}.erp-card{width:min(1250px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 25px 80px rgba(0,0,0,.3)}
+.erp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;padding:22px 25px 16px;border-bottom:1px solid #eee}.erp-head h2{margin:4px 0;color:#5f0c12;font-family:var(--serif)}.erp-head p{margin:0;color:#777;font-size:12px}.eyebrow{font-size:10px;font-weight:800;letter-spacing:1.4px;color:var(--red)}
+.erp-close,.erp-form-card .dept-form-header button{border:0;background:#f4f4f4;width:38px;height:38px;border-radius:50%;font-size:25px;cursor:pointer;color:#555}.erp-close:hover{background:var(--red-soft);color:var(--red)}
+.erp-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 25px}.erp-count{color:#555}.erp-tools{display:flex;gap:9px}.erp-tools input{width:230px;border:1px solid #ddd;border-radius:9px;padding:10px 12px;outline:none}.erp-tools input:focus{border-color:var(--red)}
+.erp-table-wrap{overflow:auto;padding:0 25px 25px}.erp-table{width:100%;border-collapse:collapse;min-width:850px}.erp-table th{background:#f7eeee;color:#651018;text-align:left;padding:12px;font-size:12px;white-space:nowrap}.erp-table td{padding:11px 12px;border-bottom:1px solid #eee;color:#333;font-size:12px}.erp-table tr:hover td{background:#fffafa}
+.erp-action{border:0;border-radius:7px;padding:7px 9px;cursor:pointer;font-weight:700;margin-right:4px;font-size:11px}.erp-edit{background:#f3e9ea;color:#7a0f16}.erp-delete{background:#feeaea;color:#b42318}.erp-view{background:#eef3f7;color:#24526d}.erp-status{padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700}.erp-active{background:#e7f7ed;color:#18733a}.erp-pending{background:#fff3df;color:#956000}.erp-inactive{background:#f3f3f3;color:#777}
+.erp-form-modal{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.62);display:none;align-items:center;justify-content:center;padding:18px}.erp-form-modal.open{display:flex}.erp-form-card{width:min(620px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:17px;padding:22px;box-shadow:0 25px 80px rgba(0,0,0,.35)}.erp-fields{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}.erp-fields label{display:block;font-weight:700;font-size:12px;color:#444;margin:9px 0}.erp-fields input,.erp-fields select,.erp-fields textarea{width:100%;box-sizing:border-box;margin-top:5px;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:13px;outline:none;background:#fff}.erp-fields textarea{min-height:85px;resize:vertical}.erp-fields input:focus,.erp-fields select:focus,.erp-fields textarea:focus{border-color:var(--red)}.erp-full{grid-column:1/-1}.erp-file{padding:8px!important}.erp-empty{text-align:center;padding:35px;color:#777}.erp-empty strong{display:block;color:#5f0c12;margin-bottom:5px}
+@media(max-width:650px){.erp-panel{padding:8px}.erp-card{max-height:94vh;border-radius:13px}.erp-head{padding:17px}.erp-toolbar{padding:13px 17px;align-items:stretch;flex-direction:column}.erp-tools{flex-direction:column}.erp-tools input{width:100%}.erp-table-wrap{padding:0 17px 18px}.erp-fields{grid-template-columns:1fr}.erp-full{grid-column:auto}}
+/* Compact AI assistant */
+.ai-fab{height:42px;padding:0 14px 0 11px;border-radius:21px;font-size:11px;gap:6px}
+.ai-fab.ai-open{width:42px;padding:0;font-size:17px}
+@media(max-width:600px){.ai-fab{height:38px;padding:0 12px 0 10px;border-radius:19px;font-size:10px;gap:5px}.ai-fab.ai-open{width:38px;font-size:16px}}
+
+/* ---------- CSS PART 5: change-password-styles ---------- */
+.settings-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.dean-password-btn,.dean-logout-btn{border:0;border-radius:8px;padding:10px 14px;color:#fff;font-size:12px;font-weight:700;cursor:pointer}
+.dean-password-btn{background:#3f3f3f}
+.dean-password-btn:hover{background:#262626}
+.dean-logout-btn{margin-top:0}
+.password-modal{position:fixed;inset:0;background:rgba(0,0,0,.48);display:flex;align-items:center;justify-content:center;padding:18px;z-index:6000;opacity:0;visibility:hidden;pointer-events:none;transition:.2s}
+.password-modal.open{opacity:1;visibility:visible;pointer-events:auto}
+.password-modal-card{width:min(430px,100%);background:#fff;border-radius:16px;padding:24px;box-shadow:0 24px 70px rgba(0,0,0,.3);position:relative}
+.password-modal-close{position:absolute;right:12px;top:10px;width:34px;height:34px;border:0;border-radius:50%;background:#f4eeee;color:var(--red);font-size:24px;cursor:pointer}
+.password-icon{width:52px;height:52px;border-radius:14px;background:var(--red-soft);display:flex;align-items:center;justify-content:center;font-size:25px;margin-bottom:10px}
+.password-modal-card h2{font-family:var(--serif);font-size:21px;margin-bottom:4px}.password-subtitle{font-size:11px;color:var(--gray);margin-bottom:18px}
+.password-modal-card label{display:block;text-align:left;font-size:11px;font-weight:600;margin-bottom:12px;color:var(--gray-dark)}
+.password-modal-card input{display:block;width:100%;height:42px;margin-top:6px;border:1px solid var(--line);border-radius:8px;padding:0 12px;font-size:12px;background:#fafafa}
+.password-modal-card input:focus{outline:none;border-color:var(--red);background:#fff}
+.password-message{min-height:18px;font-size:11px;margin:4px 0 8px;color:var(--red)}
+.password-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:10px}.password-cancel,.password-save{border:0;border-radius:8px;padding:10px 14px;font-size:12px;font-weight:700;cursor:pointer}.password-cancel{background:#eee;color:#444}.password-save{background:var(--red);color:#fff}.password-save:hover{background:var(--red-dark)}
+@media(max-width:600px){.settings-actions{flex-direction:column}.dean-password-btn,.dean-logout-btn{width:100%}.password-modal{padding:10px}.password-modal-card{padding:21px 17px}}
+/* Compact AI assistant */
+.ai-fab{height:42px;padding:0 14px 0 11px;border-radius:21px;font-size:11px;gap:6px}
+.ai-fab.ai-open{width:42px;padding:0;font-size:17px}
+@media(max-width:600px){.ai-fab{height:38px;padding:0 12px 0 10px;border-radius:19px;font-size:10px;gap:5px}.ai-fab.ai-open{width:38px;font-size:16px}}
+
+/* ---------- CSS PART 6: frontend-final-polish ---------- */
+/* Final frontend polish: consistent focus states, safe mobile spacing, and accessible interactive controls. */
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(176,28,38,.25);outline-offset:2px}
+@media(max-width:900px){.ai-fab{bottom:104px!important}.ai-panel{bottom:174px!important;max-height:calc(100vh - 210px)!important}}
+/* Compact AI assistant */
+.ai-fab{height:42px;padding:0 14px 0 11px;border-radius:21px;font-size:11px;gap:6px}
+.ai-fab.ai-open{width:42px;padding:0;font-size:17px}
+@media(max-width:600px){.ai-fab{height:38px;padding:0 12px 0 10px;border-radius:19px;font-size:10px;gap:5px}.ai-fab.ai-open{width:38px;font-size:16px}}
+
+/* ---------- CSS PART 7: dean-maroon-background ---------- */
+/* Same maroon-red sidebar background as the supplied Student ERP */
+.sidebar{
+  background:#7a0f16 !important;
+  border-right-color:#7a0f16 !important;
+}
+.sidebar .logo-area{
+  background:#7a0f16 !important;
+  border-bottom-color:rgba(255,255,255,.45) !important;
+}
+.sidebar .menu{
+  background:#7a0f16 !important;
+}
+.sidebar .menu-title,
+.sidebar .menu a{
+  color:#fff !important;
+}
+.sidebar .menu a.active{
+  background:rgba(255,255,255,.16) !important;
+  color:#fff !important;
+}
+.sidebar .menu a:hover{
+  background:rgba(255,255,255,.12) !important;
+  color:#fff !important;
+}
+/* Compact AI assistant */
+.ai-fab{height:42px;padding:0 14px 0 11px;border-radius:21px;font-size:11px;gap:6px}
+.ai-fab.ai-open{width:42px;padding:0;font-size:17px}
+@media(max-width:600px){.ai-fab{height:38px;padding:0 12px 0 10px;border-radius:19px;font-size:10px;gap:5px}.ai-fab.ai-open{width:38px;font-size:16px}}
+
+/* FINAL DASHBOARD SEARCH + COMPACT AI */
+.dashboard-search{
+  display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);
+  border-radius:10px;padding:6px 12px;margin:-8px 0 18px;box-shadow:0 3px 10px rgba(0,0,0,.04);
+}
+.dashboard-search span{font-size:22px;line-height:1;color:var(--gray);transform:rotate(-20deg);display:inline-block}
+.dashboard-search input{flex:1;border:0;outline:0;background:transparent;height:34px;font-size:13px;color:var(--gray-dark)}
+.dashboard-search input::placeholder{color:#999}
+.ai-fab{height:38px;padding:0 12px 0 10px;border-radius:19px;font-size:10px;gap:5px;box-shadow:0 5px 14px rgba(176,28,38,.25)}
+.ai-fab.ai-open{width:38px;padding:0;font-size:15px}
+.ai-panel{right:18px;bottom:120px;width:330px;height:470px;max-height:calc(100vh - 150px);border-radius:14px}
+.ai-head{gap:7px;padding:9px 11px}
+.ai-avatar{width:29px;height:29px;font-size:13px}
+.ai-head-text strong{font-size:12px}.ai-head-text span{font-size:9px}
+.ai-new{padding:5px 8px;font-size:10px}.ai-close{font-size:18px;width:26px;height:26px}
+.ai-body{padding:13px 12px;gap:10px}
+.ai-empty h3{font-size:17px;margin-bottom:5px}.ai-empty p{font-size:10px;margin-bottom:12px}
+.ai-chips{gap:6px}.ai-chips button{padding:8px 10px;font-size:10px;border-radius:8px}
+.msg{font-size:11px;line-height:1.4;padding:8px 10px}
+.ai-foot{padding:9px 10px 10px}.ai-input{padding:4px 5px 4px 10px;border-radius:11px}.ai-input textarea{font-size:11px;padding:6px 0}.ai-send{width:30px;height:30px;font-size:13px;border-radius:8px}.ai-note{font-size:8px;margin-top:5px}
+@media(max-width:600px){
+  .dashboard-search{margin:0 0 14px;padding:5px 9px;border-radius:9px}
+  .dashboard-search input{font-size:12px;height:31px}
+  .ai-fab{right:12px;bottom:66px;height:34px;padding:0 10px 0 8px;border-radius:17px;font-size:9px}
+  .ai-fab.ai-open{width:34px;font-size:14px}
+  .ai-panel{right:10px;bottom:108px;width:min(350px,calc(100vw - 28px));height:450px;max-height:calc(100vh - 130px);border-radius:13px}
+}
+
